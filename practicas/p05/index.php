@@ -58,6 +58,9 @@
     verificar la evolución del tipo de estas variables (imprime todos los componentes de los
     arreglo):</p>
     <?php
+        unset($a);
+        unset($b);
+        unset($c);
         $a = "PHP5";
         echo "La variable a es: ", $a;
         echo "<br><br>";
@@ -80,7 +83,7 @@
         echo "<br>La variable b es: ", $b;
         echo "<br><br>";
 
-        $b *= $c;
+        @$b *= $c;
         echo "La variable b es: ", $b;
         echo "<br>La variable c es: ", $c;
         echo "<br><br>";
@@ -94,6 +97,9 @@
     <p>Lee y muestra los valores de las variables del ejercicio anterior, pero ahora con la ayuda de
     la matriz $GLOBALS o del modificador global de PHP.</p>
     <?php
+        unset($a);
+        unset($b);
+        unset($c);
         $a = "PHP5";
         echo "La variable a = " . $GLOBALS["a"] . "<br><br>";
 
@@ -112,13 +118,59 @@
         echo "La variable a = " . $GLOBALS["a"] . "<br>";
         echo "La variable b = " . $GLOBALS["b"] . "<br><br>";
 
-        $b *= $c;
+        @$b *= $c;
         echo "La variable b = " . $GLOBALS["b"] . "<br>";
         echo "La variable c = " . $GLOBALS["c"] . "<br><br>";
 
         $z[0] = "MySQL";
         echo "La variable z = ";
         print_r($GLOBALS["z"]);
+    ?>
+    <h2>Ejercicio 5</h2>
+    <p>Dar el valor de las variables $a, $b, $c al final del siguiente script:</p>
+    <?php
+        unset($a);
+        unset($b);
+        unset($c);
+        $a = "7 personas";
+        $b = (integer) $a;
+        $a = "9E3";
+        $c = (double) $a;
+
+        echo '<ul>';
+        echo '<li>a = '; var_dump($a); echo '</li>';
+        echo '<li>b = '; var_dump($b); echo '</li>';
+        echo '<li>c = '; var_dump($c); echo '</li>';
+        echo '</ul>';
+    ?>
+    <h2>Ejercicio 6</h2>
+    <p>Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
+    usando la función var_dump(<datos>).
+    Después investiga una función de PHP que permita transformar el valor booleano de $c y $e
+    en uno que se pueda mostrar con un echo:</p>
+    <?php
+        unset($a);
+        unset($b);
+        unset($c);
+        $a = "0";
+        $b = "TRUE";
+        $c = FALSE;
+        $d = ($a OR $b);
+        $e = ($a AND $c);
+        $f = ($a XOR $b);
+
+        echo "<ul>";
+        echo "<li>\$a = "; var_dump($a); echo "</li>";
+        echo "<li>\$b = "; var_dump($b); echo "</li>";
+        echo "<li>\$c = "; var_dump($c); echo "</li>";
+        echo "<li>\$d = "; var_dump($d); echo "</li>";
+        echo "<li>\$e = "; var_dump($e); echo "</li>";
+        echo "<li>\$f = "; var_dump($f); echo "</li>";
+        echo "</ul>";
+
+        echo "<p>Con var_export():</p>";
+        echo "c = " . var_export($c, true) . "<br>";
+        echo "e = " . var_export($e, true) . "<br>";
     ?>
 </body>
 </html>
