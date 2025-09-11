@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Práctica 3</title>
+    <title>Práctica 5</title>
 </head>
 <body>
     <h2>Ejercicio 1</h2>
@@ -43,12 +43,82 @@
         echo '<li>$c es </li>', $c;
         echo '</ul>';
 
+        echo 'En el segundo bloque, la variable \$b se declaró como referencia a \$a, 
+        por lo que ambas comparten el mismo valor. Al modificar \$a, 
+        automáticamente cambia también \$b.';
         $a = "PHP Server";
         $b = &$a;
         echo '<ul>';
         echo '<li>$a es </li>', $a;
         echo '<li>$b es </li>', $b;
         echo '</ul>';
+    ?>
+    <h2>Ejercicio 3</h2>
+    <p>Muestra el contenido de cada variable inmediatamente después de cada asignación,
+    verificar la evolución del tipo de estas variables (imprime todos los componentes de los
+    arreglo):</p>
+    <?php
+        $a = "PHP5";
+        echo "La variable a es: ", $a;
+        echo "<br><br>";
+
+        $z[] = &$a;
+        echo "La variable z es: ";
+        print_r($z);
+        echo "<br><br>";
+
+        $b = "5a version de PHP";
+        echo "La variable b es: ", $b;
+        echo "<br><br>";
+
+        @$c = $b*10;
+        echo "La variable c es: ", $c;
+        echo "<br><br>";
+
+        $a .= $b;
+        echo "La variable a es: ", $a;
+        echo "<br>La variable b es: ", $b;
+        echo "<br><br>";
+
+        $b *= $c;
+        echo "La variable b es: ", $b;
+        echo "<br>La variable c es: ", $c;
+        echo "<br><br>";
+
+        $z[0] = "MySQL";
+        echo "La variable z es: ";
+        print_r($z);
+        echo "<br><br>";
+    ?>
+    <h2>Ejercicio 4</h2>
+    <p>Lee y muestra los valores de las variables del ejercicio anterior, pero ahora con la ayuda de
+    la matriz $GLOBALS o del modificador global de PHP.</p>
+    <?php
+        $a = "PHP5";
+        echo "La variable a = " . $GLOBALS["a"] . "<br><br>";
+
+        $z[] = &$a;
+        echo "La variable z = ";
+        print_r($GLOBALS["z"]);
+        echo "<br><br>";
+
+        $b = "5a version de PHP";
+        echo "La variable b = " . $GLOBALS["b"] . "<br><br>";
+
+        @$c = $b * 10;
+        echo "La variable c = " . $GLOBALS["c"] . "<br><br>";
+
+        $a .= $b;
+        echo "La variable a = " . $GLOBALS["a"] . "<br>";
+        echo "La variable b = " . $GLOBALS["b"] . "<br><br>";
+
+        $b *= $c;
+        echo "La variable b = " . $GLOBALS["b"] . "<br>";
+        echo "La variable c = " . $GLOBALS["c"] . "<br><br>";
+
+        $z[0] = "MySQL";
+        echo "La variable z = ";
+        print_r($GLOBALS["z"]);
     ?>
 </body>
 </html>
