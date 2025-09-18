@@ -19,7 +19,8 @@
     <form action="http://52.43.117.247/neo/classroom/tw/concurso.php" method="post">
       <h2>Información de Participación</h2>
 
-      <p>Información personal</p>
+      <fieldset>
+      <legend><p>Información personal</p></legend>
 
       <ul>
         <li>Nombre: <input type="text" name="name"></li>
@@ -28,28 +29,35 @@
         <li>Mis tenis son tan feos porque...<br>
         <textarea name="..." rows="4" cols="60" maxlength="..." placeholder="No más de 300 carácteres de longitud"></textarea></li>
       </ul>
+      </fieldset>
 
       <h2>Diseña tus Mike personalizados:</h2>
 
-      <p>Diseño personalizado del Tenis</p>
+      <fieldset>
+      <legend><p>Diseño personalizado del Tenis</p></legend>
 
-      <p>Color <em>(escoge uno)</em>:</p>
+      <fieldset>
+      <legend><p>Color <em>(escoge uno)</em>:</p></legend>
         <ul>
           <li><input type="radio" name="color" value="Rojo">Rojo</li>
           <li><input type="radio" name="color" value="Azul">Azul</li>
           <li><input type="radio" name="color" value="Negro">Negro</li>
           <li><input type="radio" name="color" value="Plateado">Plateado</li>
         </ul>
+      </fieldset>
 
-      <p>Características <em>(escoge tantas como quieras)</em>:</p>
+      <fieldset>
+      <legend><p>Características <em>(escoge tantas como quieras)</em>:</p></legend>
         <ul>
           <li><input type="checkbox" name="features[]" value="Cordones Brillantes">Cordones brillantes</li>
           <li><input type="checkbox" name="features[]" value="Logo Metálico" checked>Logo metálico</li>
           <li><input type="checkbox" name="features[]" value="Suela Luminosa">Suela luminosa</li>
           <li><input type="checkbox" name="features[]" value="WiFi Integrado">WiFi integrado</li>
         </ul>
+      </fieldset>
 
-      <p>Talla</p>
+      <fieldset>
+      <legend><p>Talla</p></legend>
       <p>Las medidas reflejan el estándar masculino:
       <select name="size">
         <option value="3">3</option>
@@ -62,8 +70,10 @@
         <option value="10">10</option>
         <option value="11">11</option>
       </select></p>
+      </fieldset>
+      </fieldset>
       <p><input type="submit" value="¡Chidos mis tenis!">
-      <input type="reset" value="Limpiar"></p>
+      <input type="reset" value="Restablecer"></p>
     </form>
   </body>
 </html>
