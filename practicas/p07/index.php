@@ -74,5 +74,18 @@
             <input type="reset" value="Restablecer"></p>
         </fieldset>
     </form>
+
+    <h2>Ejercicio 6</h2>
+    <p>Crea en código duro un arreglo asociativo que sirva para registrar el parque vehicular de
+    una ciudad.</p>
+    <form action = "respuestaEj6.php" method = "post">
+        <fieldset>
+            <legend><p>Formulario del Carro</p></legend>
+            Matrícula de Auto: <input type="text" name="matricula"><br>
+            <p><input type="submit" name = "buscar" value="Buscar">
+            <input type="reset" value="Restablecer">
+            <input type="submit" name = "todos" value="Mostrar Todos"></p>
+        </fieldset>
+    </form>
 </body>
 </html>
