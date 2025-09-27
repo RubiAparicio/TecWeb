@@ -1,5 +1,5 @@
 <?php
-    function Ejercicio1 ($num) {
+    function ejercicio1 ($num) {
         //if(isset($_GET['numero']))
         //$num = $_GET['num'];
         if ($num%5==0 && $num%7==0)
@@ -10,5 +10,26 @@
         {
             echo '<h3>R= El número '.$num.' NO es múltiplo de 5 y 7.</h3>';
         }
+    }
+
+    function ejercicio2 () {
+        $matriz = [];
+        $iteraciones = 0;
+
+        do {
+            $num1 = rand(1, 1000);
+            $num2 = rand(1, 1000);
+            $num3 = rand(1, 1000);
+            $iteraciones++;
+            
+            $matriz = [$num1, $num2, $num3];
+        } while (!(($num1 % 2 != 0) && ($num2 % 2 == 0) && ($num3 % 2 != 0)));
+
+        foreach ($matriz as $num) {
+            echo "$num ";
+        }
+
+        $totalNumeros = $iteraciones * 3;
+        echo "<br>$totalNumeros números obtenidos en $iteraciones iteraciones.";
     }
 ?>

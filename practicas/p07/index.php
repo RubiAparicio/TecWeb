@@ -11,12 +11,12 @@
     <?php
         include_once("src/funciones.php");
         if (isset($_GET['num'])) {
-            Ejercicio1($_GET['num']);
+            ejercicio1($_GET['num']);
         }
     ?>
 
     <h2>Ejemplo de POST</h2>
-    <form action="http://localhost/tecweb/practicas/p04/index.php" method="post">
+    <form action="http://localhost/TecWeb/practicas/p07/index.php" method="post">
         Name: <input type="text" name="name"><br>
         E-mail: <input type="text" name="email"><br>
         <input type="submit">
@@ -29,6 +29,13 @@
             echo '<br>';
             echo $_POST["email"];
         }
+    ?>
+
+    <h2>Ejercicio 2</h2>
+    <p>Crea un programa para la generación repetitiva de 3 números aleatorios hasta obtener una
+    secuencia compuesta por: impar, par, impar.</p>
+    <?php
+        ejercicio2();
     ?>
 </body>
 </html>
