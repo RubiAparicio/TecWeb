@@ -35,7 +35,6 @@
     <p>Crea un programa para la generación repetitiva de 3 números aleatorios hasta obtener una
     secuencia compuesta por: impar, par, impar.</p>
     <?php
-        include_once("src/funciones.php");
         ejercicio2();
     ?>
 
@@ -43,7 +42,6 @@
     <p>Utiliza un ciclo while para encontrar el primer número entero obtenido aleatoriamente,
     pero que además sea múltiplo de un número dado.</p>
     <?php
-        include_once("src/funciones.php");
         echo "Utilizando While <br>";
         if (isset($_GET['multiplo'])) {
             ejercicio3While($_GET['multiplo']);
@@ -52,6 +50,14 @@
         if (isset($_GET['multiplo'])) {
             ejercicio3DoWhile($_GET['multiplo']);
         }
+    ?>
+
+    <h2>Ejercicio 4</h2>
+    <p>Crear un arreglo cuyos índices van de 97 a 122 y cuyos valores son las letras de la ‘a’
+    a la ‘z’. Usa la función chr(n) que devuelve el caracter cuyo código ASCII es n para poner
+    el valor en cada índice.</p>
+    <?php
+        ejercicio4();
     ?>
 </body>
 </html>

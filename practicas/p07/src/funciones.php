@@ -47,4 +47,14 @@
         } while ($numero % $multiplo != 0);
         echo "El número $numero es múltiplo de: $multiplo";
     }
+
+    function ejercicio4 () {
+        $array = [];
+        for ($i=97;$i<=122;$i++) {
+            $array[$i] = chr($i);
+        }
+        foreach ($array as $key => $value) {
+            echo "[$key] => $value<br>";
+        }
+    }
 ?>
