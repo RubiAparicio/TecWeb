@@ -35,7 +35,23 @@
     <p>Crea un programa para la generación repetitiva de 3 números aleatorios hasta obtener una
     secuencia compuesta por: impar, par, impar.</p>
     <?php
+        include_once("src/funciones.php");
         ejercicio2();
+    ?>
+
+    <h2>Ejercicio 3</h2>
+    <p>Utiliza un ciclo while para encontrar el primer número entero obtenido aleatoriamente,
+    pero que además sea múltiplo de un número dado.</p>
+    <?php
+        include_once("src/funciones.php");
+        echo "Utilizando While <br>";
+        if (isset($_GET['multiplo'])) {
+            ejercicio3While($_GET['multiplo']);
+        }
+        echo "<br><br>Utilizando Do-While<br>";
+        if (isset($_GET['multiplo'])) {
+            ejercicio3DoWhile($_GET['multiplo']);
+        }
     ?>
 </body>
 </html>

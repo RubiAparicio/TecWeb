@@ -32,4 +32,19 @@
         $totalNumeros = $iteraciones * 3;
         echo "<br>$totalNumeros números obtenidos en $iteraciones iteraciones.";
     }
+
+    function ejercicio3While ($multiplo) {
+        $numero = rand(1, 100);
+        while ($numero % $multiplo != 0) {
+            $numero = rand(1, 100);
+        }
+        echo "El número $numero es múltiplo de: $multiplo";
+    }
+
+    function ejercicio3DoWhile ($multiplo) {
+        do {
+            $numero = rand(1, 100);
+        } while ($numero % $multiplo != 0);
+        echo "El número $numero es múltiplo de: $multiplo";
+    }
 ?>
