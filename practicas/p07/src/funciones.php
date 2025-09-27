@@ -57,4 +57,12 @@
             echo "[$key] => $value<br>";
         }
     }
+
+    function ejercicio5 ($edad, $sexo) {
+        if (($sexo == "Femenino") && ($edad >= 18) && ($edad <= 35)) {
+            echo "<p>Bienvenida, usted está en el rango de edad permitido.</p>";
+        } else {
+            echo "<p>Lo sentimos, no cumple con los criterios.</p>";
+        }
+    }
 ?>

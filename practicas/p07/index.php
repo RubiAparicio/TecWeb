@@ -59,5 +59,20 @@
     <?php
         ejercicio4();
     ?>
+
+    <h2>Ejercicio 5</h2>
+    <p>Usar las variables $edad y $sexo en una instrucción if para identificar una persona de
+    sexo “femenino”, cuya edad oscile entre los 18 y 35 años y mostrar un mensaje de
+    bienvenida apropiado.</p>
+    <form action = "respuestaEj5.php" method = "post">
+        <fieldset>
+            <legend><p>Formulario</p></legend>
+            Edad: <input type="number" name="edad"><br>
+            Sexo: <input type="radio" name="sexo" value="Femenino"> Femenino
+            <input type="radio" name="sexo" value="Masculino"> Masculino
+            <p><input type="submit" value="Enviar">
+            <input type="reset" value="Restablecer"></p>
+        </fieldset>
+    </form>
 </body>
 </html>
