@@ -145,7 +145,7 @@
     ?>
     <h2>Ejercicio 6</h2>
     <p>Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
-    usando la función var_dump(<datos>).
+    usando la función var_dump(datos).
     Después investiga una función de PHP que permita transformar el valor booleano de $c y $e
     en uno que se pueda mostrar con un echo:</p>
     <?php
@@ -194,5 +194,10 @@
     $idioma = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
     echo "Idioma principal del navegador: " . $idioma . "<br>";
     ?>
+    
+    <p>
+    <a href="https://validator.w3.org/check?uri=referer"><img
+      src="https://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" height="31" width="88" /></a>
+  </p>
 </body>
 </html>
