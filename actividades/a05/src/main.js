@@ -114,3 +114,48 @@ function ejemplo9() {
             break;
     }
 }
+
+function ejemplo10() {
+    var x = 1;
+    while (x <= 100) {
+        document.getElementById("resultado10").innerHTML += x + "<br>";
+        x = x+1;
+    }
+}
+
+function ejemplo11() {
+    var x = 1;
+    var suma = 0;
+    var valor;
+    while (x<=5) {
+        valor = prompt("Ingresa el valor: ", "");
+        valor = parseInt(valor);
+        suma = suma+valor;
+        x = x+1;
+    }
+    document.getElementById("resultado11").innerHTML = "La suma de los valores es " + suma + "<br>";
+}
+
+function ejemplo12() {
+    var valor;
+    do {
+        valor = prompt("Ingresa un valor entre 0 y 999: ", "");
+        valor = parseInt(valor);
+        document.getElementById("resultado12").innerHTML += "El valor " + valor + " tiene ";
+        if (valor < 10) {
+            document.getElementById("resultado12").innerHTML += "1 dígito";
+        } else if (valor < 100) {
+            document.getElementById("resultado12").innerHTML += "2 dígitos";
+        } else {
+            document.getElementById("resultado12").innerHTML += "3 dígitos";
+        }
+        document.getElementById("resultado12").innerHTML += "<br>";
+    } while(valor!=0);
+}
+
+function ejemplo13() {
+    var f;
+    for (f=1;f<=10;f++) {
+        document.getElementById("resultado13").innerHTML += f + " ";
+    }
+}
