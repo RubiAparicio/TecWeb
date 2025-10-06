@@ -159,3 +159,73 @@ function ejemplo13() {
         document.getElementById("resultado13").innerHTML += f + " ";
     }
 }
+
+function ejemplo14() {
+    document.getElementById("resultado14").innerHTML = "Cuidado<br> Ingresa tu documento correctamente<br> Cuidado<br> Ingresa tu documento correctamente<br> Cuidado<br> Ingresa tu documento correctamente<br>";
+}
+
+function mostrarMensaje() {
+    document.getElementById("resultado15").innerHTML += "Cuidado<br> Ingresa tu documento correctamente<br>";
+}
+function ejemplo15() {
+    mostrarMensaje();
+    mostrarMensaje();
+    mostrarMensaje();
+}
+
+function mostrarRango(x1, x2) {
+    var inicio;
+    for (inicio=x1;inicio<=x2;inicio++) {
+        document.getElementById("resultado16").innerHTML += inicio + " ";
+    }
+}
+function ejemplo16() {
+    var valor1 = prompt("Ingrese el valor inferior: ", "");
+    valor1 = parseInt(valor1);
+    var valor2 = prompt("Ingrese el valor superior: ", "");
+    valor2 = parseInt(valor2);
+    mostrarRango(valor1, valor2);
+}
+
+function convertirCastellanoIf(x) {
+    if (x==1) {
+        return "uno";
+    } else 
+    if (x=2) {
+        return "dos";
+    } else 
+    if (x==3) {
+        return "tres";
+    } else
+    if (x==4) {
+        return "cuatro";
+    } else
+    if(x==5) {
+        return "cinco";
+    } else {
+        return "valor incorrecto";
+    }
+}
+function ejemplo17() {
+    var valor = prompt("Ingrese un valor entre 1 y 5: ", "");
+    valor = parseInt(valor);
+    var r = convertirCastellanoIf(valor);
+    document.getElementById("resultado17").innerHTML = r;
+}
+
+function convertirCastellanoSwitch(x) {
+    switch(x) {
+        case 1: return "uno";
+        case 2: return "dos";
+        case 3: return "tres";
+        case 4: return "cuatro";
+        case 5: return "cinco";
+        default: return "valor incorrecto";
+    }
+}
+function ejemplo18() {
+    var valor = prompt("Ingrese un valor entre 1 y 5: ", "");
+    valor = parseInt(valor);
+    var r = convertirCastellanoSwitch(valor);
+    document.getElementById("resultado18").innerHTML = r;
+}
