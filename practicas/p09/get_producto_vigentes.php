@@ -14,10 +14,10 @@
         die('Parámetro "tope" no detectado...');
     }
 
-	if (!empty($tope))
+	if (isset($tope))
 	{
 		/** SE CREA EL OBJETO DE CONEXION */
-		@$link = new mysqli('localhost', 'root', '12345678a', 'marketzone');
+		@$link = new mysqli('localhost', 'root', 'aarr2004', 'marketzone');
         /** NOTA: con @ se suprime el Warning para gestionar el error por medio de código */
 
 		/** comprobar la conexión */
@@ -28,7 +28,7 @@
 		}
 
 		/** Crear una tabla que no devuelve un conjunto de resultados */
-		if ( $result = $link->query("SELECT * FROM productos WHERE unidades <= $tope") ) 
+		if ( $result = $link->query("SELECT * FROM productos WHERE eliminado = $tope") ) 
 		{
             /** Se extraen las tuplas obtenidas de la consulta */
 			$row = $result->fetch_all(MYSQLI_ASSOC);
@@ -84,9 +84,9 @@
 						<td><?= $value['precio'] ?></td>
 						<td><?= $value['unidades'] ?></td>
 						<td><?= $value['detalles'] ?></td>
-						<td><img src=<?= $value['imagen'] ?> ></td>
+						<td><img src="<?= $value['imagen'] ?>" style="max-width:100px;" /></td>
 					</tr>
-					<?php endforeach; ?>
+					<?php endforeach;?>
 				</tbody>
 			</table>
 		<?php elseif(!empty($id)) : ?>
