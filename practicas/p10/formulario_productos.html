@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Registro de nuevos productos</h1>
+    <form id="formulario" action="http://localhost/TecWeb/practicas/p09/set_producto_v2.php" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Detalles del Producto</legend>
+            <label for="form-nombre">Nombre del Producto: </label> <input type="text" name="nombre_producto" id="form-nombre"><br>
+            <label for="form-marca">Marca del Producto: </label> <input type="text" name="marca_producto" id="form-marca"><br>
+            <label for="form-modelo">Modelo del Producto: </label> <input type="text" name="modelo_producto" id="form-modelo"><br>
+            <label for="form-precio">Precio del Producto: </label> <input type="number" name="precio_producto" id="form-precio" step="0.01"><br>
+            <label for="form-detalles">Detalles del Producto: </label> <br><textarea name="detalles_producto" rows="4" cols="60" id="form-detalles" placeholder="No más de 300 caracteres de longitud"></textarea><br>
+            <label for="form-unidades">Unidades del Producto: </label> <input type="number" name="unidades_producto" id="form-unidades"><br>
+            <label for="form-imagen">Imagen del Producto: </label> <input type="file" name="imagen_producto" id="form-imagen" accept="image/*">
+        </fieldset>
+        <p>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Resetear">
+        </p>
+    </form>
+</body>
+</html>
