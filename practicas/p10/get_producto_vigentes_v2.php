@@ -86,7 +86,7 @@
 						<td><?= $value['detalles'] ?></td>
 						<td><img src="<?= $value['imagen'] ?>" style="max-width:100px;" /></td>
 						<td>
-							<a class="btn btn-primary btn-sm" href="formulario_productos_v2.php?id=<?= $value['id'] ?>&nombre=<?= urlencode($value['nombre']) ?>&marca=<?= urlencode($value['marca']) ?>&modelo=<?= urlencode($value['modelo']) ?>&precio=<?= urlencode($value['precio']) ?>&unidades=<?= urlencode($value['unidades']) ?>&detalles=<?= urlencode($value['detalles']) ?>&imagen=<?= urlencode($value['imagen']) ?>">Modificar</a>
+							<a class="btn btn-primary btn-sm" href="formulario_productos_v3.php?id=<?= $value['id'] ?>&nombre=<?= urlencode($value['nombre']) ?>&marca=<?= urlencode($value['marca']) ?>&modelo=<?= urlencode($value['modelo']) ?>&precio=<?= urlencode($value['precio']) ?>&unidades=<?= urlencode($value['unidades']) ?>&detalles=<?= urlencode($value['detalles']) ?>&imagen=<?= urlencode($value['imagen']) ?>">Modificar</a>
 					</tr>
 					<?php endforeach;?>
 				</tbody>

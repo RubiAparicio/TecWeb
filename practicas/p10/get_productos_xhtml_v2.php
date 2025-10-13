@@ -62,7 +62,7 @@ if (!empty($tope)) {
                         <td><?= utf8_encode($row['detalles']) ?></td>
                         <td><img src="<?= $row['imagen'] ?>" alt="imagen" style="max-width:100px;" /></td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="formulario_productos_v2.php?id=<?= $row['id'] ?>&nombre=<?= urlencode($row['nombre']) ?>&marca=<?= urlencode($row['marca']) ?>&modelo=<?= urlencode($row['modelo']) ?>&precio=<?= urlencode($row['precio']) ?>&unidades=<?= urlencode($row['unidades']) ?>&detalles=<?= urlencode($row['detalles']) ?>&imagen=<?= urlencode($row['imagen']) ?>">Modificar</a>
+                            <a class="btn btn-primary btn-sm" href="formulario_productos_v3.php?id=<?= $row['id'] ?>&nombre=<?= urlencode($row['nombre']) ?>&marca=<?= urlencode($row['marca']) ?>&modelo=<?= urlencode($row['modelo']) ?>&precio=<?= urlencode($row['precio']) ?>&unidades=<?= urlencode($row['unidades']) ?>&detalles=<?= urlencode($row['detalles']) ?>&imagen=<?= urlencode($row['imagen']) ?>">Modificar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
