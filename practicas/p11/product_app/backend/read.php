@@ -3,27 +3,36 @@
 
     // SE CREA EL ARREGLO QUE SE VA A DEVOLVER EN FORMA DE JSON
     $data = array();
-    // SE VERIFICA HABER RECIBIDO EL ID
-    if( isset($_POST['id']) ) {
-        $id = $_POST['id'];
-        // SE REALIZA LA QUERY DE BÚSQUEDA Y AL MISMO TIEMPO SE VALIDA SI HUBO RESULTADOS
-        if ( $result = $conexion->query("SELECT * FROM productos WHERE id = '{$id}'") ) {
-            // SE OBTIENEN LOS RESULTADOS
-			$row = $result->fetch_array(MYSQLI_ASSOC);
+    // SE VERIFICA HABER RECIBIDO EL TÉRMINO DE BÚSQUEDA 'busqueda'
+    if( isset($_POST['busqueda']) ) {
+        $busqueda = $_POST['busqueda'];
 
-            if(!is_null($row)) {
+        $sql = "SELECT * FROM productos WHERE eliminado = 0 AND (
+                    id LIKE '%{$busqueda}%' OR 
+                    nombre LIKE '%{$busqueda}%' OR 
+                    marca LIKE '%{$busqueda}%' OR 
+                    detalles LIKE '%{$busqueda}%'
+                )";
+        
+        // SE REALIZA LA QUERY DE BÚSQUEDA
+        if ( $result = $conexion->query($sql) ) {
+            // SE OBTIENEN TODOS LOS RESULTADOS COMO UN ARRAY
+            while ($row = $result->fetch_assoc()) {
                 // SE CODIFICAN A UTF-8 LOS DATOS Y SE MAPEAN AL ARREGLO DE RESPUESTA
+                $producto = array();
                 foreach($row as $key => $value) {
-                    $data[$key] = utf8_encode($value);
+                    $producto[$key] = utf8_encode($value);
                 }
+                $data[] = $producto;
             }
 			$result->free();
 		} else {
-            die('Query Error: '.mysqli_error($conexion));
+            // En caso de error de sintaxis en la consulta
+            $data['error'] = 'Query Error: '.mysqli_error($conexion);
         }
 		$conexion->close();
-    } 
+    }
     
-    // SE HACE LA CONVERSIÓN DE ARRAY A JSON
+    // SE HACE LA CONVERSIÓN DE ARRAY A JSON (siempre devuelve un array)
     echo json_encode($data, JSON_PRETTY_PRINT);
 ?>
