@@ -31,14 +31,36 @@
             <div class="card-body">
               <!-- FORMULARIO PARA AGREGAR PRODUCTO -->
               <form id="product-form">
-                <div class="form-group">
-                  <input class="form-control" type="text" id="name" placeholder="Nombre de producto">
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" id="description" cols="30" rows="10" placeholder="JSON de producto"></textarea>
-                </div>
                 <input type="hidden" id="productId">
-                <button class="btn btn-primary btn-block text-center" type="submit">
+                <div class="form-group">
+                  <input class="form-control" type="text" id="nombre" placeholder="Nombre de producto" required>
+                  <small id="estado_nombre" class="text-warning"></small>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="number" id="precio" placeholder="Precio" step="0.01" required>
+                  <small id="estado_precio" class="text-warning"></small>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="number" id="unidades" placeholder="Unidades" required>
+                  <small id="estado_unidades" class="text-warning"></small>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" id="modelo" placeholder="Modelo del Producto">
+                  <small id="estado_modelo" class="text-warning"></small>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" id="marca" placeholder="Marca del Producto">
+                  <small id="estado_marca" class="text-warning"></small>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" id="detalles" placeholder="Descripción del Producto">
+                  <small id="estado_detalles" class="text-warning"></small>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" id="imagen" placeholder="URL de imagen">
+                  <small id="estado_imagen" class="text-warning"></small>
+                </div>
+                <button class="btn btn-primary btn-block text-center" type="submit" id="btn-submit">
                   Agregar Producto
                 </button>
               </form>
