@@ -1,28 +1,21 @@
 <?php
-    include_once __DIR__.'/database.php';
+// 1. Uso del namespace y la inclusión de la clase
+namespace MyBackEnd;
+require_once 'myapi/Products.php';
 
-    // SE CREA EL ARREGLO QUE SE VA A DEVOLVER EN FORMA DE JSON
-    $data = array(
-        'status'  => 'error',
-        'message' => 'La consulta falló'
-    );
-    // SE VERIFICA HABER RECIBIDO EL ID
-    if( isset($_POST['id']) ) {
-        $jsonOBJ = json_decode( json_encode($_POST) );
-        // SE REALIZA LA QUERY DE BÚSQUEDA Y AL MISMO TIEMPO SE VALIDA SI HUBO RESULTADOS
-        $sql =  "UPDATE productos SET nombre='{$jsonOBJ->nombre}', marca='{$jsonOBJ->marca}',";
-        $sql .= "modelo='{$jsonOBJ->modelo}', precio={$jsonOBJ->precio}, detalles='{$jsonOBJ->detalles}',"; 
-        $sql .= "unidades={$jsonOBJ->unidades}, imagen='{$jsonOBJ->imagen}' WHERE id={$jsonOBJ->id}";
-        $conexion->set_charset("utf8");
-        if ( $conexion->query($sql) ) {
-            $data['status'] =  "success";
-            $data['message'] =  "Producto actualizado";
-		} else {
-            $data['message'] = "ERROR: No se ejecuto $sql. " . mysqli_error($conexion);
-        }
-		$conexion->close();
-    } 
+// 2. Creación del objeto
+$products = new \MyApi\Products('marketzone'); 
+
+if( isset($_POST['id']) ) {
+    // Obtener y transformar el POST a un objeto
+    $jsonOBJ = json_decode( json_encode($_POST) );
     
-    // SE HACE LA CONVERSIÓN DE ARRAY A JSON
-    echo json_encode($data, JSON_PRETTY_PRINT);
+    // 3. Invoca el método correcto (edit($object))
+    $products->edit($jsonOBJ);
+} else {
+    $products->data = ['status' => 'error', 'message' => 'No se recibió el ID para editar'];
+}
+
+// 4. Echo de la respuesta JSON
+echo $products->getData();
 ?>
