@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>ProductApp</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.min.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href=".">ProductApp</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto"></ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" name="search" id="search" type="search" placeholder="ID, marca o descripción">
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row p-4">
+        <div class="col-md-5">
+          <div class="card">
+            <div class="card-body">
+
+              <form id="product-form">
+                <input type="hidden" id="productId">
+
+                <div class="form-group">
+                  <input class="form-control" type="text" id="nombre" placeholder="Nombre de producto" required>
+                  <small id="estado_nombre" class="text-warning"></small>
+                </div>
+
+                <div class="form-group">
+                  <input class="form-control" type="text" id="marca" placeholder="Marca ">
+                  <small id="estado_marca" class="text-warning"></small>
+                </div>
+
+                <div class="form-group">
+                  <input class="form-control" type="text" id="modelo" placeholder="Modelo ">
+                  <small id="estado_modelo" class="text-warning"></small>
+                </div>
+
+                <div class="form-group">
+                  <input class="form-control" type="number" id="precio" placeholder="Precio" step="0.01" required>
+                  <small id="estado_precio" class="text-warning"></small>
+                </div>
+
+                <div class="form-group">
+                  <input class="form-control" type="number" id="unidades" placeholder="Unidades " required>
+                  <small id="estado_unidades" class="text-warning"></small>
+                </div>
+
+                <div class="form-group">
+                  <input class="form-control" type="text" id="detalles" placeholder="Detalles o descripción">
+                  <small id="estado_detalles" class="text-warning"></small>
+                </div>
+
+                <div class="form-group">
+                  <input class="form-control" type="text" id="imagen" placeholder="URL de imagen ">
+                  <small id="estado_imagen" class="text-warning"></small>
+                </div>
+
+
+                <button class="btn btn-primary btn-block text-center" type="submit" id="btn-submit">
+                  Agregar Producto
+                </button>
+
+              </form>
+
+              <div id="estado_global" class="mt-3 text-info"></div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-7">
+          <div class="card my-4" id="product-result">
+            <div class="card-body">
+              <ul id="container"></ul>
+            </div>
+          </div>
+
+          <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <td>Id</td>
+                <td>Nombre</td>
+                <td>Descripción</td>
+              </tr>
+            </thead>
+            <tbody id="products"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
