@@ -1,0 +1,9 @@
+{
+    "name": "tecweb/myapi",
+    "description": "API Backend con PSR-4",
+    "autoload": {
+        "psr-4": {
+            "TECWEB\\MYAPI\\": "myapi/"
+        }
+    }
+}

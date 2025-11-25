@@ -3,24 +3,25 @@ namespace TECWEB\MYAPI;
 
 abstract class DataBase {
     protected $conexion;
+    protected $data;
 
-    public function __construct($db, $user, $pass) {
+    // Según el UML: user, pass, db
+    public function __construct($user, $pass, $db) {
+        $this->data = array();
+        // mysqli_connect usa: Host, User, Pass, DB
         $this->conexion = @mysqli_connect(
             'localhost',
-            $root,
-            $aarr2004,
-            $marketzone
+            $user, 
+            $pass, 
+            $db
         );
     
-        /**
-         * NOTA: si la conexión falló $conexion contendrá false
-         **/
         if(!$this->conexion) {
-            die('¡Base de datos NO conextada!');
+            die('¡Base de datos NO conectada! Error: ' . mysqli_connect_error());
         }
-        /*else {
-            echo 'Base de datos encontrada';
-        }*/
+    }
+
+    public function getData() {
+        return json_encode($this->data, JSON_PRETTY_PRINT);
     }
 }
-?>
