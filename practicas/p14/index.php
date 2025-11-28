@@ -7,69 +7,50 @@ require __DIR__ . '/vendor/autoload.php';
 
 $app = AppFactory::create();
 
-// Ajusta esta ruta si el nombre de tus carpetas es diferente
 $app->setBasePath('/TecWeb/practicas/p14');
 $app->get('/', function (Request $request, Response $response, $args) {
     $response->getBody()->write("Hola Mundo Slim!");
     return $response;
 });
 
-// Ruta que recibe un nombre por la URL (ej: localhost/p14/saludo/Juan)
 $app->get('/saludo/{nombre}', function (Request $request, Response $response, $args) {
     $nombre = $args['nombre'];
     $response->getBody()->write("Hola, " . $nombre);
     return $response;
 });
 
-$app->post('/probarpost', function ($request, $response, $args) {
+$app->post('/probarpost', function (Request $request, Response $response, $args) {
 
+    // Obtenemos los datos enviados por POST (Postman)
     $reqPost = $request->getParsedBody();
-    $nombre = $reqPost['nombre'] ?? null;
-    $edad = $reqPost['edad'] ?? null;
 
-    // Armamos un arreglo con los datos a regresar
-    $respuesta = [
-        'status' => 'ok',
-        'mensaje' => 'Datos recibidos correctamente',
-        'datos' => [
-            'nombre' => $nombre,
-            'edad' => $edad
-        ]
-    ];
+    // Procesamos los datos (pero NO devolvemos JSON aquí)
+    $mensaje = "Datos recibidos: " . print_r($reqPost, true);
 
-    // Convertimos el array a JSON
-    $payload = json_encode($respuesta, JSON_PRETTY_PRINT);
-
-    // Escribimos el JSON en el cuerpo de la respuesta
-    $response->getBody()->write($payload);
-
-    // Indicamos que la salida es JSON
-    return $response->withHeader('Content-Type', 'application/json');
+    $response->getBody()->write($mensaje);
+    return $response;
 });
 
-$app->get('/testjson', function ($request, $response, $args) {
+$app->post('/testjson', function (Request $request, Response $response, $args) {
 
-    $data = [
-        [
-            "nombre"   => "Rubi",
-            "apellido" => "Aparicio"
-        ],
-        [
-            "nombre"   => "Eduardo",
-            "apellido" => "Carmona"
-        ]
+    // Obtenemos los datos enviados por POST
+    $reqPost = $request->getParsedBody();
+
+    // Armamos la respuesta en JSON
+    $respuesta = [
+        'status' => 'exito',
+        'mensaje' => 'JSON generado correctamente',
+        'recibido' => $reqPost
     ];
 
     // Convertimos a JSON
-    $payload = json_encode($data, JSON_PRETTY_PRINT);
+    $payload = json_encode($respuesta);
 
-    // Escribimos el JSON en la respuesta
+    // Escribimos la salida en JSON
     $response->getBody()->write($payload);
 
-    // Indicamos que es JSON
     return $response->withHeader('Content-Type', 'application/json');
 });
-
 
 $app->run();
 ?>
